@@ -1,0 +1,606 @@
+You are a Principal Software Architect, Quantitative Trading Engineer, AI Engineer, Security Expert, and Senior Chrome Extension Developer.
+
+Your mission is to build a production-ready, enterprise-grade AI-powered Chrome Extension called:
+
+"AI Trading Copilot"
+
+The extension should provide real-time market analysis for Zerodha Kite and assist traders with high-quality trade decisions. It is a decision-support system only. It MUST NEVER execute trades automatically or claim guaranteed profits.
+
+=========================================================
+OBJECTIVE
+=========================================================
+
+The extension should:
+
+• Read the live Option Chain
+• Read live charts
+• Read market depth
+• Read OI
+• Read Volume
+• Read IV
+• Read Greeks (if available)
+• Detect chart patterns
+• Detect Smart Money Concepts
+• Detect support/resistance
+• Detect liquidity
+• Detect institutional footprints
+
+Then combine every signal using AI and produce:
+
+• Trade Quality Score
+• Entry
+• Stop Loss
+• Multiple Targets
+• Risk Reward
+• Confidence
+• Detailed reasoning
+• Reasons NOT to trade
+• Risk warnings
+
+Never recommend trades with insufficient evidence.
+
+=========================================================
+TECH STACK
+=========================================================
+
+Use only modern technologies.
+
+Frontend
+
+Chrome Extension Manifest V3
+
+React
+
+TypeScript
+
+Vite
+
+TailwindCSS
+
+Zustand
+
+React Query
+
+Floating sidebar UI
+
+Background Service Worker
+
+Content Scripts
+
+Offscreen Document
+
+Web Workers
+
+Backend
+
+Python FastAPI
+
+Redis
+
+PostgreSQL
+
+WebSocket Server
+
+AI
+
+NVIDIA NIM API
+
+Structured Outputs
+
+Streaming Responses
+
+Vision Model Support
+
+Future Support
+
+Multiple Brokers
+
+=========================================================
+EXTENSION FEATURES
+=========================================================
+
+Inject a floating AI sidebar inside Kite.
+
+Sidebar should contain:
+
+Live Market Status
+
+Trend
+
+Bullish
+
+Bearish
+
+Sideways
+
+Momentum
+
+Volatility
+
+Trade Score
+
+Confidence
+
+Suggested Direction
+
+CALL
+
+PUT
+
+NO TRADE
+
+Entry
+
+Stop
+
+Target1
+
+Target2
+
+Target3
+
+Risk Reward
+
+Reasons
+
+Market Warnings
+
+=========================================================
+OPTION CHAIN ANALYZER
+=========================================================
+
+Read continuously:
+
+Strike Prices
+
+Call OI
+
+Put OI
+
+OI Change
+
+Volume
+
+Bid Ask
+
+IV
+
+Greeks
+
+Calculate:
+
+PCR
+
+Max Pain
+
+Support
+
+Resistance
+
+OI Shift
+
+Call Writing
+
+Put Writing
+
+Short Covering
+
+Long Build Up
+
+Long Unwinding
+
+Short Build Up
+
+Gamma Exposure
+
+IV Crush
+
+IV Expansion
+
+=========================================================
+CHART ANALYZER
+=========================================================
+
+Detect automatically:
+
+Trend
+
+Breakout
+
+Breakdown
+
+EMA
+
+VWAP
+
+RSI
+
+MACD
+
+ATR
+
+ADX
+
+Supertrend
+
+Moving Average
+
+Volume Spike
+
+Candlestick Patterns
+
+Support
+
+Resistance
+
+Supply Zone
+
+Demand Zone
+
+=========================================================
+SMART MONEY CONCEPTS
+=========================================================
+
+Detect
+
+BOS
+
+CHOCH
+
+Order Blocks
+
+Breaker Blocks
+
+Mitigation Blocks
+
+Fair Value Gap
+
+Liquidity Grab
+
+Liquidity Sweep
+
+Equal High
+
+Equal Low
+
+Premium
+
+Discount
+
+Institutional Entry
+
+=========================================================
+PRICE ACTION
+=========================================================
+
+Detect
+
+Double Top
+
+Double Bottom
+
+Head and Shoulder
+
+Inverse Head
+
+Triangle
+
+Flag
+
+Pennant
+
+Rectangle
+
+Channel
+
+Cup Handle
+
+=========================================================
+TRADE ENGINE
+=========================================================
+
+Every signal receives a weighted score.
+
+Example
+
+Trend
+
+25
+
+Option Chain
+
+20
+
+Volume
+
+15
+
+SMC
+
+20
+
+Indicators
+
+10
+
+Volatility
+
+10
+
+Generate overall score.
+
+Only recommend
+
+Score > 80
+
+Otherwise
+
+Wait
+
+=========================================================
+AI ANALYSIS
+=========================================================
+
+AI should explain
+
+Why trade
+
+Why not
+
+Risk
+
+Probability
+
+Market psychology
+
+Institutional activity
+
+Expected movement
+
+Alternative scenario
+
+Invalidation point
+
+=========================================================
+REAL TIME ENGINE
+=========================================================
+
+Refresh every second.
+
+No page reload.
+
+Low latency.
+
+Use Web Workers.
+
+Use efficient DOM observers.
+
+Debounce everything.
+
+Never freeze browser.
+
+=========================================================
+ALERTS
+=========================================================
+
+Popup
+
+Desktop Notification
+
+Sound
+
+Telegram (future)
+
+Discord (future)
+
+Email (future)
+
+=========================================================
+DASHBOARD
+=========================================================
+
+Trade Journal
+
+Daily PnL
+
+Win Rate
+
+Average RR
+
+Mistakes
+
+Heat Map
+
+Performance Graph
+
+Psychology Notes
+
+=========================================================
+AI CHAT
+=========================================================
+
+Chat like ChatGPT.
+
+Example
+
+Why CALL?
+
+Explain BOS.
+
+What is Max Pain?
+
+Can I hold overnight?
+
+=========================================================
+UI
+=========================================================
+
+Modern
+
+Glassmorphism
+
+Dark Theme
+
+Responsive
+
+Movable Sidebar
+
+Resizable
+
+Floating Widgets
+
+Keyboard Shortcuts
+
+=========================================================
+SECURITY
+=========================================================
+
+No secrets inside extension.
+
+JWT Authentication
+
+Encrypted Storage
+
+Secure API
+
+Rate Limiting
+
+Input Validation
+
+CSP
+
+XSS Protection
+
+=========================================================
+PERFORMANCE
+=========================================================
+
+Lighthouse >95
+
+Memory optimized
+
+Fast startup
+
+Lazy Loading
+
+Caching
+
+Virtual Rendering
+
+=========================================================
+ARCHITECTURE
+=========================================================
+
+Use clean architecture.
+
+Separate
+
+UI
+
+Business Logic
+
+Market Engine
+
+AI Engine
+
+Broker Engine
+
+Storage
+
+Settings
+
+=========================================================
+PROJECT STRUCTURE
+=========================================================
+
+Generate a complete production repository.
+
+Include
+
+Folder structure
+
+Documentation
+
+Architecture diagrams
+
+API docs
+
+Database schema
+
+Tests
+
+Docker
+
+CI/CD
+
+GitHub Actions
+
+Environment variables
+
+README
+
+Installation guide
+
+Developer guide
+
+=========================================================
+CODE QUALITY
+=========================================================
+
+Strict TypeScript
+
+ESLint
+
+Prettier
+
+Unit Tests
+
+Integration Tests
+
+E2E Tests
+
+100% typed code
+
+Reusable components
+
+No duplicated logic
+
+=========================================================
+OUTPUT
+=========================================================
+
+Generate the project in phases.
+
+Phase 1
+Architecture
+
+Phase 2
+Folder Structure
+
+Phase 3
+Extension Core
+
+Phase 4
+Live Data Engine
+
+Phase 5
+Option Chain Engine
+
+Phase 6
+Chart Engine
+
+Phase 7
+AI Engine
+
+Phase 8
+Trade Recommendation Engine
+
+Phase 9
+Dashboard
+
+Phase 10
+Testing
+
+Never skip steps.
+
+Produce production-quality code with detailed comments, scalability considerations, and extensibility for future broker integrations.

@@ -1,0 +1,222 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   Global Styles — AI Trading Copilot Sidebar
+   Dark glassmorphism theme with vibrant accents
+   ============================================================ */
+
+:root {
+  --text-white-rgb: 255, 255, 255;
+  --bg-primary-rgb: 15, 15, 35;
+  --bg-secondary-rgb: 26, 26, 46;
+  --bg-dark-100-rgb: 22, 33, 62;
+  --bg-dark-200-rgb: 15, 52, 96;
+  --bg-dark-300-rgb: 83, 52, 131;
+  --surface-rgb: 255, 255, 255;
+
+  --bg-primary: rgba(var(--bg-primary-rgb), 0.98);
+  --bg-secondary: rgba(var(--bg-secondary-rgb), 0.95);
+  --bg-card: rgba(var(--surface-rgb), 0.05);
+  --bg-card-hover: rgba(var(--surface-rgb), 0.08);
+  --border-subtle: rgba(99, 102, 241, 0.15);
+  --border-accent: rgba(99, 102, 241, 0.4);
+  --text-primary: rgba(var(--text-white-rgb), 0.95);
+  --text-secondary: rgba(var(--text-white-rgb), 0.6);
+  --text-muted: rgba(var(--text-white-rgb), 0.35);
+  --accent-primary: #6366f1;
+  --accent-secondary: #8b5cf6;
+  --bullish: #10b981;
+  --bearish: #ef4444;
+  --sideways: #f59e0b;
+  --glow-primary: rgba(99, 102, 241, 0.25);
+  --glow-bullish: rgba(16, 185, 129, 0.25);
+  --glow-bearish: rgba(239, 68, 68, 0.25);
+}
+
+html.light, body.light, .light {
+  --text-white-rgb: 15, 23, 42; /* slate-900 */
+  --bg-primary-rgb: 248, 250, 252; /* slate-50 */
+  --bg-secondary-rgb: 241, 245, 249; /* slate-100 */
+  --bg-dark-100-rgb: 226, 232, 240; /* slate-200 */
+  --bg-dark-200-rgb: 203, 213, 225; /* slate-300 */
+  --bg-dark-300-rgb: 148, 163, 184; /* slate-400 */
+  --surface-rgb: 0, 0, 0; /* black overlay for cards */
+
+  --border-subtle: rgba(99, 102, 241, 0.12);
+  --border-accent: rgba(99, 102, 241, 0.3);
+  --glow-primary: rgba(79, 70, 229, 0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+#sidebar-root {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.5);
+}
+
+/* ============================================================
+   Glass Card Component
+   ============================================================ */
+
+@layer components {
+  .glass-card {
+    @apply rounded-xl border border-surface-200 bg-surface-50 p-3;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.2s ease;
+  }
+
+  .glass-card:hover {
+    @apply border-surface-300 bg-surface-100;
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.1);
+  }
+
+  .glass-card-accent {
+    @apply glass-card;
+    border-color: rgba(99, 102, 241, 0.3);
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.1);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, #818cf8, #a78bfa, #c084fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Pulsing dot indicator */
+  .pulse-dot {
+    @apply inline-block h-2 w-2 rounded-full;
+    animation: pulse-dot 2s infinite;
+  }
+
+  .pulse-dot-bullish {
+    @apply pulse-dot;
+    background: var(--bullish);
+    box-shadow: 0 0 8px var(--glow-bullish);
+  }
+
+  .pulse-dot-bearish {
+    @apply pulse-dot;
+    background: var(--bearish);
+    box-shadow: 0 0 8px var(--glow-bearish);
+  }
+
+  .pulse-dot-sideways {
+    @apply pulse-dot;
+    background: var(--sideways);
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.25);
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-2xs font-semibold uppercase tracking-wider;
+  }
+
+  .badge-bullish {
+    @apply badge;
+    background: rgba(16, 185, 129, 0.15);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+  }
+
+  .badge-bearish {
+    @apply badge;
+    background: rgba(239, 68, 68, 0.15);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+  }
+
+  .badge-neutral {
+    @apply badge;
+    background: rgba(245, 158, 11, 0.15);
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+  }
+
+  .badge-info {
+    @apply badge;
+    background: rgba(99, 102, 241, 0.15);
+    color: #a5b4fc;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+  }
+
+  /* Tab navigation */
+  .tab-active {
+    @apply relative;
+    color: white;
+  }
+
+  .tab-active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #6366f1, #8b5cf6);
+    border-radius: 1px;
+  }
+
+  /* Shimmer loading effect */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.05) 25%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0.05) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.85);
+  }
+}

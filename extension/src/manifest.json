@@ -1,0 +1,59 @@
+{
+  "manifest_version": 3,
+  "name": "AI Trading Copilot",
+  "version": "1.0.0",
+  "description": "AI-powered real-time market analysis for Zerodha Kite. Decision support only — never executes trades.",
+  "icons": {
+    "16": "src/assets/icons/icon16.svg",
+    "48": "src/assets/icons/icon48.svg",
+    "128": "src/assets/icons/icon128.svg"
+  },
+  "permissions": [
+    "storage",
+    "notifications",
+    "alarms",
+    "sidePanel",
+    "offscreen"
+  ],
+  "host_permissions": [
+    "*://kite.zerodha.com/*",
+    "http://localhost:8000/*"
+  ],
+  "background": {
+    "service_worker": "src/background/index.ts",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://kite.zerodha.com/*"],
+      "js": ["src/content/index.ts"],
+      "css": ["src/content/styles/sidebar.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "src/popup/index.html",
+    "default_icon": {
+      "16": "src/assets/icons/icon16.svg",
+      "48": "src/assets/icons/icon48.svg",
+      "128": "src/assets/icons/icon128.svg"
+    },
+    "default_title": "AI Trading Copilot"
+  },
+  "options_ui": {
+    "page": "src/options/index.html",
+    "open_in_tab": true
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "src/sidebar/index.html",
+        "assets/*"
+      ],
+      "matches": ["*://kite.zerodha.com/*"]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

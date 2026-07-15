@@ -1,0 +1,11 @@
+/* Content script sidebar injection styles - loaded via manifest */
+/* Minimal styles to avoid interfering with Kite's CSS */
+
+#ai-trading-copilot-root {
+  all: initial;
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  z-index: 2147483647 !important;
+  pointer-events: auto !important;
+}

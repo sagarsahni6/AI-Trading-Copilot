@@ -1,0 +1,24 @@
+{
+  "name": "ai-trading-copilot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI-powered Chrome Extension for real-time market analysis on Zerodha Kite",
+  "author": "AI Trading Copilot",
+  "license": "MIT",
+  "scripts": {
+    "dev": "pnpm --filter extension dev",
+    "build": "pnpm --filter extension build",
+    "lint": "pnpm --filter extension lint",
+    "test": "pnpm --filter extension test",
+    "typecheck": "pnpm --filter extension typecheck",
+    "backend:dev": "cd backend && uvicorn app.main:app --reload --host 0.0.0.0 --port 8000",
+    "backend:test": "cd backend && pytest",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "clean": "pnpm --filter extension clean && rm -rf node_modules"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  }
+}
